@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questoesEnad versao="1.0" >
+	<curso descricao="Sistemas de Informação">
+	    <disciplina descricao="Estrutura de Dados">
+	        <pergunta enunciado="O que significa LIFO" dificuldade="facil">
+	            <opcao descricao="Last in First Out" respostaCorreta="true"/>
+	            <opcao descricao="Left in First Out"/>
+	            <opcao descricao="Right in First Out"/>
+	            <opcao descricao="Middle in First Out"/>
+	            <opcao descricao="Top in First Out"/>
+	        </pergunta>
+	        <pergunta enunciado="outra pergunta nivel medio" dificuldade="medio">
+	            <opcao descricao="Esse" respostaCorreta="true"/>
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="mais uma pergunta nivel medio I" dificuldade="medio">
+	            <opcao descricao="Esse" respostaCorreta="true"/>
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="dinovo nivel medio II" dificuldade="medio">
+	            <opcao descricao="Esse" respostaCorreta="true"/>
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="nivel dificil III" dificuldade="dificil">
+	            <opcao descricao="Esse" respostaCorreta="true"/>
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="nivel dificil I" dificuldade="dificil">
+	            <opcao descricao="Esse" respostaCorreta="true" />
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="nivel dificil II" dificuldade="dificil">
+	            <opcao descricao="Esse" respostaCorreta="true" />
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	        <pergunta enunciado="nivel dificil III" dificuldade="dificil">
+	            <opcao descricao="Esse" respostaCorreta="true"/>
+	            <opcao descricao="Nao"/>
+	            <opcao descricao="No"/>
+	            <opcao descricao="Errado"/>
+	            <opcao descricao="Nao é"/>
+	        </pergunta>
+	    </disciplina>
+	    <disciplina descricao="Matemática Discreta">
+	        <pergunta enunciado="1+1=?" dificuldade="facil">
+	            <opcao descricao="2" respostaCorreta="true"/>
+	            <opcao descricao="3"/>
+	            <opcao descricao="4"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	        <pergunta enunciado="1+2=?" dificuldade="facil">
+	            <opcao descricao="2"/>
+	            <opcao descricao="3" respostaCorreta="true"/>
+	            <opcao descricao="4"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	        <pergunta enunciado="1*1=?" dificuldade="medio">
+	            <opcao descricao="1" respostaCorreta="true" />
+	            <opcao descricao="3" />
+	            <opcao descricao="4"  />
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1" />
+	        </pergunta>
+	        <pergunta enunciado="1*3=?" dificuldade="medio">
+	            <opcao descricao="2"/>
+	            <opcao descricao="3" respostaCorreta="true"/>
+	            <opcao descricao="4"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        <pergunta enunciado="1/1=?" dificuldade="dificil">
+	            <opcao descricao="1" respostaCorreta="true" />
+	            <opcao descricao="3" />
+	            <opcao descricao="4"  />
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1" />
+	        </pergunta>
+	        <pergunta enunciado="9/3=?" dificuldade="dificil">
+	            <opcao descricao="2"/>
+	            <opcao descricao="3" respostaCorreta="true"/>
+	            <opcao descricao="4"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	    </disciplina>     
+	</curso>
+	
+	<curso descricao="Educação Física">
+	    <disciplina descricao="Matemática">
+	        <pergunta enunciado="1+1=?" dificuldade="facil">
+	            <opcao descricao="2" respostaCorreta="true" />
+	            <opcao descricao="3" />
+	            <opcao descricao="4"  />
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1" />
+	        </pergunta>
+	        <pergunta enunciado="1+2=?" dificuldade="facil">
+	            <opcao descricao="2"/>
+	            <opcao descricao="3" respostaCorreta="true"/>
+	            <opcao descricao="4"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	    </disciplina>
+    </curso>
+</questoesEnad>

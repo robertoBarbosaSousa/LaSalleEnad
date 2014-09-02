@@ -166,4 +166,8 @@ public abstract class AbstractDAO<T extends AbstractEntity> {
      * Retrieves the entity from a cursor.
      */
     protected abstract T getObject( Cursor mCursor );
+
+    public void truncate() {
+        this.dbHelper.getWritableDatabase().delete( tableName, "", new String[] {} );
+    }
 }

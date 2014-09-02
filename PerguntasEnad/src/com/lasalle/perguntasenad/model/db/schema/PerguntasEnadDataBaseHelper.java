@@ -57,6 +57,19 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
         return PerguntasEnadDataBaseHelper.dbHelper;
     }
 
+    //
+    // /**
+    // * Database instance
+    // *
+    // * @param context
+    // */
+    // public static void resetDatabase() {
+    // db.execSQL( "TRUNCATE TABLE " + OpcaoData.TABLE_NAME );
+    // db.execSQL( "TRUNCATE TABLE " + PerguntaData.TABLE_NAME );
+    // db.execSQL( "TRUNCATE TABLE " + DisciplinaData.TABLE_NAME );
+    // db.execSQL( "TRUNCATE TABLE " + CursoData.TABLE_NAME );
+    // }
+
     /**
      * Database instance
      * 
@@ -64,9 +77,7 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
      */
     public static void loadDB( final Context context ) {
         if ( PerguntasEnadDataBaseHelper.dbHelper == null ) {
-            Log.e( "PerguntasEnadDataBaseHelper", "LOAD" );
             PerguntasEnadDataBaseHelper.dbHelper = new PerguntasEnadDataBaseHelper( context );
-            PerguntasEnadDataBaseHelper.getInstance().getWritableDatabase();
         }
     }
 
@@ -75,7 +86,6 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
      */
     @Override
     public void onCreate( SQLiteDatabase db ) {
-        Log.e( this.getClass().getName(), "CRIANDO DATA BASE" );
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_CURSO );
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_DISCIPLINA );
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_PERGUNTA );

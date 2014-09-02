@@ -45,4 +45,5 @@ public class OpcaoDAO extends AbstractDAO<Opcao> {
             mCursor.getLong( mCursor.getColumnIndexOrThrow( OpcaoData.FK_COLUMN_PERGUNTA ) ) ) );
         return opcao;
     }
+
 }

@@ -6,6 +6,9 @@ import org.w3c.dom.Document;
 
 import android.util.Log;
 
+import com.google.inject.Inject;
+import com.lasalle.perguntasenad.model.bo.LoaderXmlBO;
+import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadDataBaseHelper;
 import com.lasalle.perguntasenad.presenter.util.XMLUtil;
 import com.lasalle.perguntasenad.view.SelecaoCursoView;
 
@@ -20,8 +23,11 @@ public class SelecaoCursoPresenter {
 
     private String versionId;
 
+    private LoaderXmlBO loaderBO;
+
     public void setup( SelecaoCursoView view ) {
         this.view = view;
+        this.loaderBO = new LoaderXmlBO();
     }
 
     /**
@@ -32,12 +38,12 @@ public class SelecaoCursoPresenter {
             Document doc = XMLUtil.getDocumentByInputStream( file );
             if ( this.updateValues( myVersion, doc ) ) {
                 this.view.exibirDialogoUpdate();
-                // TODO: update dos dados
-                this.view.atualizaUltimaVersao(versionId);
+                this.view.atualizaUltimaVersao( this.versionId );
             } else {
                 this.view.carregaListaCursos();
             }
         } catch ( Exception e ) {
+            e.printStackTrace();
             Log.e( "ERROR READIND XML FILE", e.getMessage() );
         }
     }
@@ -49,7 +55,7 @@ public class SelecaoCursoPresenter {
      */
     private boolean updateValues( String myVersion, Document file ) {
         try {
-            this.getVersionId( file );
+            this.versionId = this.loaderBO.getVersionId( file );
             return ( ( myVersion == null ) || !this.versionId.equals( myVersion ) );
         } catch ( Exception e ) {
             return true;
@@ -57,16 +63,16 @@ public class SelecaoCursoPresenter {
     }
 
     /**
-     * Retorna o id do xml atual.
+     * Atualiza base de questões;
      * 
      * @param file
-     * @return
      */
-    public void getVersionId( Document file ) {
-        if ( ( file.getElementsByTagName( "questoesEnad" ).item( 0 ) != null )
-                && ( file.getElementsByTagName( "questoesEnad" ).item( 0 ).getAttributes().getNamedItem( "versao" ) != null ) ) {
-            this.versionId = file.getElementsByTagName( "questoesEnad" ).item( 0 ).getAttributes()
-                    .getNamedItem( "versao" ).getNodeValue();
+    public void atualizaQuestoes( InputStream file ) {
+        try {
+            Document doc = XMLUtil.getDocumentByInputStream( file );
+            this.loaderBO.load( doc );
+        } catch ( Exception e ) {
+            e.printStackTrace();
         }
     }
 

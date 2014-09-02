@@ -7,4 +7,19 @@ package com.lasalle.perguntasenad.view;
  */
 public interface SelecaoCursoView {
 
+    /**
+     * Mostra dialogo com progress.
+     */
+    void exibirDialogoUpdate();
+
+    /**
+     * Carrega a lista de cursos.
+     */
+    void carregaListaCursos();
+
+    /**
+     * Atualiza o valor no shared.
+     */
+    void atualizaUltimaVersao( String versao );
+
 }

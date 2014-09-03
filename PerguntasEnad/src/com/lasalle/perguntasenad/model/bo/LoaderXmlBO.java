@@ -4,10 +4,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 
 import com.lasalle.perguntasenad.model.db.Curso;
+import com.lasalle.perguntasenad.model.db.Disciplina;
+import com.lasalle.perguntasenad.model.db.Opcao;
+import com.lasalle.perguntasenad.model.db.Pergunta;
 import com.lasalle.perguntasenad.model.db.DAO.CursoDAO;
 import com.lasalle.perguntasenad.model.db.DAO.DisciplinaDAO;
 import com.lasalle.perguntasenad.model.db.DAO.OpcaoDAO;
 import com.lasalle.perguntasenad.model.db.DAO.PerguntaDAO;
+import com.lasalle.perguntasenad.model.db.contants.NivelDificuldade;
 
 /**
  * Loader xml BO implementation
@@ -59,7 +63,6 @@ public class LoaderXmlBO {
                 this.atualizaCurso( node );
             }
         }
-
     }
 
     /**
@@ -68,12 +71,85 @@ public class LoaderXmlBO {
      * @param node
      */
     private void atualizaCurso( Node node ) {
-
         String desc = this.getValue( node, "descricao" );
         if ( desc != null ) {
             Curso curso = new Curso();
             curso.setDescricao( desc );
             this.cursoDAO.insert( curso );
+            for ( int i = 0; i < node.getChildNodes().getLength(); i++ ) {
+                Node filho = node.getChildNodes().item( i );
+                if ( filho.getNodeName().equalsIgnoreCase( "disciplina" ) ) {
+                    this.atualizaDisciplina( filho, curso );
+                }
+            }
+        }
+    }
+
+    /**
+     * Cria Disciplina
+     * 
+     * @param curso
+     * @param filho
+     */
+    private void atualizaDisciplina( Node node, Curso curso ) {
+        String desc = this.getValue( node, "descricao" );
+        if ( desc != null ) {
+            Disciplina disc = new Disciplina();
+            disc.setCurso( curso );
+            disc.setDescricao( desc );
+            this.disciplinaDAO.insert( disc );
+            for ( int i = 0; i < node.getChildNodes().getLength(); i++ ) {
+                Node filho = node.getChildNodes().item( i );
+                if ( filho.getNodeName().equalsIgnoreCase( "pergunta" ) ) {
+                    this.atualizaPergunta( filho, disc );
+                }
+            }
+        }
+    }
+
+    /**
+     * Cria pergunta
+     * 
+     * @param filho
+     * @param disc
+     */
+    private void atualizaPergunta( Node node, Disciplina disc ) {
+        String enunciado = this.getValue( node, "enunciado" );
+        String dificuldade = this.getValue( node, "dificuldade" );
+
+        if ( enunciado != null ) {
+            Pergunta perg = new Pergunta();
+            perg.setDisciplina( disc );
+            perg.setEnunciado( enunciado );
+            perg.setNivelDificuldade( NivelDificuldade.getNivelFromDesc( dificuldade ) );
+
+            this.perguntaDAO.insert( perg );
+
+            for ( int i = 0; i < node.getChildNodes().getLength(); i++ ) {
+                Node filho = node.getChildNodes().item( i );
+                if ( filho.getNodeName().equalsIgnoreCase( "opcao" ) ) {
+                    this.atualizaOpcao( filho, perg );
+                }
+            }
+        }
+    }
+
+    /**
+     * Atualiza opção.
+     * 
+     * @param filho
+     * @param perg
+     */
+    private void atualizaOpcao( Node node, Pergunta perg ) {
+        String desc = this.getValue( node, "descricao" );
+        String respostaCorreta = this.getValue( node, "respostaCorreta" );
+        boolean resposta = respostaCorreta != null ? Boolean.valueOf( respostaCorreta ) : false;
+        if ( desc != null ) {
+            Opcao op = new Opcao();
+            op.setPergunta( perg );
+            op.setDescricao( desc );
+            op.setRespostaCorreta( resposta );
+            this.opcaoDAO.insert( op );
         }
     }
 

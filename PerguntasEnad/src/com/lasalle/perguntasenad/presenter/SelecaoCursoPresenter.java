@@ -3,8 +3,6 @@ package com.lasalle.perguntasenad.presenter;
 import java.io.InputStream;
 import java.util.Set;
 
-import javax.inject.Inject;
-
 import org.w3c.dom.Document;
 
 import android.util.Log;
@@ -28,12 +26,12 @@ public class SelecaoCursoPresenter {
 
     private LoaderXmlBO loaderBO;
 
-    @Inject
     private CursoDAO cursoDAO;
 
     public void setup( SelecaoCursoView view ) {
         this.view = view;
         this.loaderBO = new LoaderXmlBO();
+        this.cursoDAO = new CursoDAO();
     }
 
     /**

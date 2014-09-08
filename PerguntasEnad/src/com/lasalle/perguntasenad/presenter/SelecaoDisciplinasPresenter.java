@@ -4,8 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import javax.inject.Inject;
-
 import com.lasalle.perguntasenad.model.db.Curso;
 import com.lasalle.perguntasenad.model.db.Disciplina;
 import com.lasalle.perguntasenad.model.db.DAO.DisciplinaDAO;
@@ -22,11 +20,11 @@ public class SelecaoDisciplinasPresenter {
 
     private Map<Disciplina, Boolean> mapDisciplinas = new HashMap<Disciplina, Boolean>();
 
-    @Inject
     private DisciplinaDAO disciplinaDAO;
 
     public void setup( SelecaoDisciplinasView view ) {
         this.view = view;
+        this.disciplinaDAO = new DisciplinaDAO();
     }
 
     public void carregaListaDisciplinas( Curso curso ) {

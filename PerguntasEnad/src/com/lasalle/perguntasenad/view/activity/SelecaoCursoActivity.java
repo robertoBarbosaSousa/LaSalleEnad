@@ -6,15 +6,21 @@ import javax.inject.Inject;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.lasalle.perguntasenad.R;
+import com.lasalle.perguntasenad.model.db.Curso;
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadDataBaseHelper;
 import com.lasalle.perguntasenad.presenter.SelecaoCursoPresenter;
 import com.lasalle.perguntasenad.view.SelecaoCursoView;
@@ -35,6 +41,9 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
     private SharedPreferences prefs;
 
     private ProgressDialog dialogoAtualizando;
+
+    @InjectView( R.id.cursos )
+    private LinearLayout cursos;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -74,7 +83,8 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
 
             @Override
             protected void onPostExecute( Void result ) {
-                SelecaoCursoActivity.this.dialogoAtualizando.hide();
+                SelecaoCursoActivity.this.dialogoAtualizando.dismiss();
+                SelecaoCursoActivity.this.presenter.carregaListaCursos();
             };
 
             @Override
@@ -93,14 +103,32 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
     }
 
     @Override
-    public void carregaListaCursos() {
-        Toast.makeText( this, "caga", Toast.LENGTH_LONG ).show();
-
+    public void addCurso( Curso curso ) {
+        Button b = new Button( this );
+        b.setText( curso.getDescricao() );
+        b.setTag( curso );
+        b.setOnClickListener( this.clickCurso );
+        this.cursos.addView( b );
     }
+
+    private OnClickListener clickCurso = new OnClickListener() {
+
+        @Override
+        public void onClick( View v ) {
+            SelecaoCursoActivity.this.presenter.cursoSelecionado( (Curso) v.getTag() );
+        }
+    };
 
     @Override
     public void atualizaUltimaVersao( String versao ) {
         this.prefs.edit().putString( SelecaoCursoActivity.NOME_SHARED_PREFERENCE, versao ).commit();
+    }
+
+    @Override
+    public void linkParaEscolhaDisciplinas( Curso cursoSelecionado ) {
+        Intent intent = new Intent( this, SelecaoDisciplinasActivity.class );
+        intent.putExtra( Curso.class.getName(), cursoSelecionado );
+        this.startActivity( intent );
     }
 
 }

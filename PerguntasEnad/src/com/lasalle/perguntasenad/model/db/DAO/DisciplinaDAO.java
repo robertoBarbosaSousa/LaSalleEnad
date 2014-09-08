@@ -1,5 +1,7 @@
 package com.lasalle.perguntasenad.model.db.DAO;
 
+import java.util.Set;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.provider.BaseColumns;
@@ -40,8 +42,13 @@ public class DisciplinaDAO extends AbstractDAO<Disciplina> {
         final Disciplina disc = new Disciplina();
         disc.setId( mCursor.getLong( mCursor.getColumnIndexOrThrow( BaseColumns._ID ) ) );
         disc.setDescricao( mCursor.getString( mCursor.getColumnIndexOrThrow( CursoData.COLUMN_DESCRICAO ) ) );
-        disc.setCurso( new Curso(
-            mCursor.getLong( mCursor.getColumnIndexOrThrow( DisciplinaData.FK_COLUMN_CURSO ) ) ) );
+        disc.setCurso( new Curso( mCursor.getLong( mCursor.getColumnIndexOrThrow( DisciplinaData.FK_COLUMN_CURSO ) ) ) );
         return disc;
+    }
+
+    public Set<Disciplina> listDisciplinasDoCurso( long id ) {
+        final String selection = DisciplinaData.FK_COLUMN_CURSO + " = ?";
+        final String[] selectionArgs = { String.valueOf( id ) };
+        return this.list( null, selection, selectionArgs, null );
     }
 }

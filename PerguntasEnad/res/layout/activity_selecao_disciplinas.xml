@@ -9,13 +9,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selecione_o_curso" />
+        android:text="@string/selecione_as_disciplinas" />
 
     <LinearLayout
-        android:id="@+id/cursos"
-        android:layout_marginTop="20dp"
+        android:id="@+id/disciplinas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:orientation="vertical" />
 
 </RelativeLayout>

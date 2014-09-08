@@ -1,5 +1,7 @@
 package com.lasalle.perguntasenad.view;
 
+import com.lasalle.perguntasenad.model.db.Curso;
+
 /**
  * Interface para comunicação entre preenter e view.
  * 
@@ -15,11 +17,18 @@ public interface SelecaoCursoView {
     /**
      * Carrega a lista de cursos.
      */
-    void carregaListaCursos();
+    void addCurso( Curso curso );
 
     /**
      * Atualiza o valor no shared.
      */
     void atualizaUltimaVersao( String versao );
+
+    /**
+     * Re direciona para tela de escolha de disciplinas passando o curso selecionado.
+     * 
+     * @param cursoSelecionado
+     */
+    void linkParaEscolhaDisciplinas( Curso cursoSelecionado );
 
 }

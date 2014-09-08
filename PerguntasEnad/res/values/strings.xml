@@ -6,5 +6,7 @@
     <string name="action_settings">Settings</string>
     <string name="text_progressBar">Atualizando Questões.\nAguarde alguns instantes.</string>
     <string name="atualizando">Atualizando....</string>
+    <string name="selecione_o_curso">Selecione o Curso</string>
+    <string name="selecione_as_disciplinas">Selecione as Disciplinas</string>
 
 </resources>

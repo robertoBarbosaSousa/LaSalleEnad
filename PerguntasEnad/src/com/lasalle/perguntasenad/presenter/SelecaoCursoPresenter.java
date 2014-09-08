@@ -1,14 +1,17 @@
 package com.lasalle.perguntasenad.presenter;
 
 import java.io.InputStream;
+import java.util.Set;
+
+import javax.inject.Inject;
 
 import org.w3c.dom.Document;
 
 import android.util.Log;
 
-import com.google.inject.Inject;
 import com.lasalle.perguntasenad.model.bo.LoaderXmlBO;
-import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadDataBaseHelper;
+import com.lasalle.perguntasenad.model.db.Curso;
+import com.lasalle.perguntasenad.model.db.DAO.CursoDAO;
 import com.lasalle.perguntasenad.presenter.util.XMLUtil;
 import com.lasalle.perguntasenad.view.SelecaoCursoView;
 
@@ -25,6 +28,9 @@ public class SelecaoCursoPresenter {
 
     private LoaderXmlBO loaderBO;
 
+    @Inject
+    private CursoDAO cursoDAO;
+
     public void setup( SelecaoCursoView view ) {
         this.view = view;
         this.loaderBO = new LoaderXmlBO();
@@ -40,7 +46,7 @@ public class SelecaoCursoPresenter {
                 this.view.exibirDialogoUpdate();
                 this.view.atualizaUltimaVersao( this.versionId );
             } else {
-                this.view.carregaListaCursos();
+                this.carregaListaCursos();
             }
         } catch ( Exception e ) {
             e.printStackTrace();
@@ -76,4 +82,14 @@ public class SelecaoCursoPresenter {
         }
     }
 
+    public void carregaListaCursos() {
+        Set<Curso> cursos = this.cursoDAO.list( "" );
+        for ( Curso curso : cursos ) {
+            this.view.addCurso( curso );
+        }
+    }
+
+    public void cursoSelecionado( Curso cursoSelecionado ) {
+        this.view.linkParaEscolhaDisciplinas( cursoSelecionado );
+    }
 }

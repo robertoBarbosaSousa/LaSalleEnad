@@ -8,5 +8,7 @@
     <string name="atualizando">Atualizando....</string>
     <string name="selecione_o_curso">Selecione o Curso</string>
     <string name="selecione_as_disciplinas">Selecione as Disciplinas</string>
+    <string name="voltar">Voltar</string>
+    <string name="jogar">Jogar</string>
 
 </resources>

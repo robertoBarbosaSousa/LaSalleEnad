@@ -8,7 +8,8 @@ package com.lasalle.perguntasenad.model.db.contants;
 public enum NivelDificuldade {
     FACIL( "facil" ),
     MEDIO( "medio" ),
-    DIFICIL( "dificil" );
+    DIFICIL( "dificil" ),
+    TODOS( "todos" );
 
     private String desc;
 

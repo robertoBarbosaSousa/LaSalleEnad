@@ -3,7 +3,6 @@ package com.lasalle.perguntasenad.model.db.schema;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.CursoData;
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.DisciplinaData;
@@ -56,19 +55,6 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
     public static PerguntasEnadDataBaseHelper getInstance() {
         return PerguntasEnadDataBaseHelper.dbHelper;
     }
-
-    //
-    // /**
-    // * Database instance
-    // *
-    // * @param context
-    // */
-    // public static void resetDatabase() {
-    // db.execSQL( "TRUNCATE TABLE " + OpcaoData.TABLE_NAME );
-    // db.execSQL( "TRUNCATE TABLE " + PerguntaData.TABLE_NAME );
-    // db.execSQL( "TRUNCATE TABLE " + DisciplinaData.TABLE_NAME );
-    // db.execSQL( "TRUNCATE TABLE " + CursoData.TABLE_NAME );
-    // }
 
     /**
      * Database instance

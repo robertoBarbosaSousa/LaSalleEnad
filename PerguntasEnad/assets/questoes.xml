@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<questoesEnad versao="1.0" >
+<questoesEnad versao="2.0" >
 	<curso descricao="Sistemas de Informação">
 	    <disciplina descricao="Estrutura de Dados">
 	        <pergunta enunciado="O que significa LIFO" dificuldade="facil">
@@ -102,7 +102,23 @@
 	            <opcao descricao="5"/>
 	            <opcao descricao="-1"/>
 	        </pergunta>
-	    </disciplina>     
+	    </disciplina>   
+	    <disciplina descricao="Testes">
+	        <pergunta enunciado="Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... " dificuldade="dificil">
+	            <opcao descricao="2"/>
+	            <opcao descricao="4" respostaCorreta="true"/>
+	            <opcao descricao="3"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	          <pergunta enunciado="Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... Teste de pergunta com um menunciado grande pra porra, daquelas que tem um monte de coisa inutil no começo e no final pergutna quanto é 2 + 2... " dificuldade="dificil">
+	            <opcao descricao="2"/>
+	            <opcao descricao="4" respostaCorreta="true"/>
+	            <opcao descricao="3"/>
+	            <opcao descricao="5"/>
+	            <opcao descricao="-1"/>
+	        </pergunta>
+	    </disciplina>  
 	</curso>
 	
 	<curso descricao="Educação Física">

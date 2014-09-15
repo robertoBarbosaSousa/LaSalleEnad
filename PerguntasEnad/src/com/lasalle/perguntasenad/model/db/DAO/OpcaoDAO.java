@@ -1,5 +1,7 @@
 package com.lasalle.perguntasenad.model.db.DAO;
 
+import java.util.Set;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.provider.BaseColumns;
@@ -44,6 +46,12 @@ public class OpcaoDAO extends AbstractDAO<Opcao> {
         opcao.setPergunta( new Pergunta(
             mCursor.getLong( mCursor.getColumnIndexOrThrow( OpcaoData.FK_COLUMN_PERGUNTA ) ) ) );
         return opcao;
+    }
+
+    public Set<Opcao> getOpcoes( long idPergunta ) {
+        final String selection = OpcaoData.FK_COLUMN_PERGUNTA + " = ?";
+        final String[] selectionArgs = { String.valueOf( idPergunta ) };
+        return this.list( null, selection, selectionArgs, null );
     }
 
 }

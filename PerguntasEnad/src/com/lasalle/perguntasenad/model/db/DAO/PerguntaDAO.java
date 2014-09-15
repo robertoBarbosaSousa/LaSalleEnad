@@ -1,5 +1,9 @@
 package com.lasalle.perguntasenad.model.db.DAO;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.provider.BaseColumns;
@@ -46,5 +50,21 @@ public class PerguntaDAO extends AbstractDAO<Pergunta> {
         perg.setDisciplina( new Disciplina( mCursor.getLong( mCursor
                 .getColumnIndexOrThrow( PerguntaData.FK_COLUMN_DISCIPLINA ) ) ) );
         return perg;
+    }
+
+    public Set<Pergunta> listPerguntas( NivelDificuldade nivel, String disciplinasSelecionadas ) {
+
+        String selection = "";
+        List<String> selectionArgs = new ArrayList<String>();
+        if ( ( nivel != null ) && !nivel.equals( NivelDificuldade.TODOS ) ) {
+            selection += PerguntaData.COLUMN_NIVEL_DIFICULDADE + " = ? and ";
+            selectionArgs.add( nivel.ordinal() + "" );
+        }
+        if ( disciplinasSelecionadas != null && !disciplinasSelecionadas.equals( "" ) ) {
+            selection += PerguntaData.FK_COLUMN_DISCIPLINA + " in (" + disciplinasSelecionadas + ") and ";
+        }
+        selection = selection.substring( 0, selection.length() - 5 );
+
+        return this.list( null, selection, selectionArgs.toArray( new String[selectionArgs.size()] ), null );
     }
 }

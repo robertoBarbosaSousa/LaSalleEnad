@@ -37,7 +37,7 @@ import com.lasalle.perguntasenad.view.SelecaoDisciplinasView;
 @ContentView( R.layout.activity_selecao_disciplinas )
 public class SelecaoDisciplinasActivity extends RoboActivity implements SelecaoDisciplinasView {
 
-    private static final Integer QTDE_MAXIMA_PERGUNTAS = 20;
+    private static final Integer QTDE_MAXIMA_PERGUNTAS = 30;
 
     @Inject
     private SelecaoDisciplinasPresenter presenter;
@@ -65,7 +65,7 @@ public class SelecaoDisciplinasActivity extends RoboActivity implements SelecaoD
 
     @InjectView( R.id.radioDificil )
     private RadioButton radioDificil;
-
+    
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate( savedInstanceState );
@@ -114,9 +114,9 @@ public class SelecaoDisciplinasActivity extends RoboActivity implements SelecaoD
         public void onClick( View v ) {
             SelecaoDisciplinasActivity.this.presenter.clickJogar(
                 SelecaoDisciplinasActivity.this.seekQtdePerguntas.getProgress(),
-                SelecaoDisciplinasActivity.this.radioFacil.isSelected(),
-                SelecaoDisciplinasActivity.this.radioMedio.isSelected(),
-                SelecaoDisciplinasActivity.this.radioDificil.isSelected() );
+                SelecaoDisciplinasActivity.this.radioFacil.isChecked(),
+                SelecaoDisciplinasActivity.this.radioMedio.isChecked(),
+                SelecaoDisciplinasActivity.this.radioDificil.isChecked() );
         }
     };
 

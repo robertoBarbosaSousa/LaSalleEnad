@@ -42,6 +42,9 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
 
     private ProgressDialog dialogoAtualizando;
 
+    @InjectView( R.id.btnProgresso )
+    private Button progresso;
+
     @InjectView( R.id.cursos )
     private LinearLayout cursos;
 
@@ -54,6 +57,7 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
         this.dialogoAtualizando = new ProgressDialog( this );
         this.dialogoAtualizando.setTitle( this.getString( R.string.atualizando ) );
         this.dialogoAtualizando.setMessage( this.getString( R.string.text_progressBar ) );
+        this.progresso.setOnClickListener( this.clickProgresso );
     }
 
     @Override
@@ -131,4 +135,18 @@ public class SelecaoCursoActivity extends RoboActivity implements SelecaoCursoVi
         this.startActivity( intent );
     }
 
+    private OnClickListener clickProgresso = new OnClickListener() {
+
+        @Override
+        public void onClick( View v ) {
+            SelecaoCursoActivity.this.presenter.clickProgresso();
+
+        }
+    };
+
+    @Override
+    public void redirecionaTelaDeAcompanahmento() {
+        Intent intent = new Intent( this, ProgressoActivity.class );
+        this.startActivity( intent );
+    }
 }

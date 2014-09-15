@@ -31,4 +31,9 @@ public interface SelecaoCursoView {
      */
     void linkParaEscolhaDisciplinas( Curso cursoSelecionado );
 
+    /**
+     * redireciona.
+     */
+    void redirecionaTelaDeAcompanahmento();
+
 }

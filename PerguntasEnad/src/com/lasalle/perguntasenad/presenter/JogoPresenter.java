@@ -8,8 +8,10 @@ import java.util.Set;
 import com.lasalle.perguntasenad.model.db.Disciplina;
 import com.lasalle.perguntasenad.model.db.Opcao;
 import com.lasalle.perguntasenad.model.db.Pergunta;
+import com.lasalle.perguntasenad.model.db.Progresso;
 import com.lasalle.perguntasenad.model.db.DAO.OpcaoDAO;
 import com.lasalle.perguntasenad.model.db.DAO.PerguntaDAO;
+import com.lasalle.perguntasenad.model.db.DAO.ProgressoDAO;
 import com.lasalle.perguntasenad.model.db.contants.NivelDificuldade;
 import com.lasalle.perguntasenad.presenter.DTO.PerguntaDTO;
 import com.lasalle.perguntasenad.view.JogoView;
@@ -35,10 +37,13 @@ public class JogoPresenter {
 
     private Opcao ultimaOpcaoSelecionada;
 
+    private ProgressoDAO progressoDAO;
+
     public void setup( JogoView view ) {
         this.view = view;
         this.perguntaDAO = new PerguntaDAO();
         this.opcaoDAO = new OpcaoDAO();
+        this.progressoDAO = new ProgressoDAO();
     }
 
     public void iniciaJogo( NivelDificuldade nivelEscolhido, int qtdeperguntas, Object[] disciplinasSelecionadas ) {
@@ -73,8 +78,10 @@ public class JogoPresenter {
                 corretas++;
             }
         }
+        Double percentual = this.getPercentualAcerto( corretas );
+        this.progressoDAO.insert( new Progresso( percentual ) );
 
-        this.view.fimJogo( this.perguntas.size(), corretas, this.getPercentualAcerto( corretas ) );
+        this.view.fimJogo( this.perguntas.size(), corretas, percentual );
     }
 
     /**
@@ -83,7 +90,7 @@ public class JogoPresenter {
      * @return
      */
     private double getPercentualAcerto( int corretas ) {
-        Double percentual = ( ( (double) corretas * (double) JogoPresenter.PERCENTUAL_QUESTIONS ) / (double) this.perguntas
+        Double percentual = ( ( (double) corretas * (double) JogoPresenter.PERCENTUAL_QUESTIONS ) / this.perguntas
                 .size() );
         return percentual;
     }

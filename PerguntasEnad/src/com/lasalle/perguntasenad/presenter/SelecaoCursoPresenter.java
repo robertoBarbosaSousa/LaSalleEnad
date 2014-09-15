@@ -90,4 +90,8 @@ public class SelecaoCursoPresenter {
     public void cursoSelecionado( Curso cursoSelecionado ) {
         this.view.linkParaEscolhaDisciplinas( cursoSelecionado );
     }
+
+    public void clickProgresso() {
+        this.view.redirecionaTelaDeAcompanahmento();
+    }
 }

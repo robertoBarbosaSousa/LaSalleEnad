@@ -8,6 +8,7 @@ import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.CursoData
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.DisciplinaData;
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.OpcaoData;
 import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.PerguntaData;
+import com.lasalle.perguntasenad.model.db.schema.PerguntasEnadContract.ProgressoData;
 
 /**
  * Access to and creation of the database application.
@@ -25,7 +26,10 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "perguntasEnad.sqlite";
 
     private static final String SQL_CREATE_CURSO = "CREATE TABLE " + CursoData.TABLE_NAME + " (" + CursoData._ID
-            + " INTEGER PRIMARY KEY," + CursoData.COLUMN_ID + " TEXT, " + CursoData.COLUMN_DESCRICAO + ")";
+            + " INTEGER PRIMARY KEY," + CursoData.COLUMN_DESCRICAO + " TEXT" + ")";
+
+    private static final String SQL_CREATE_PROGRESSO = "CREATE TABLE " + ProgressoData.TABLE_NAME + " ("
+            + ProgressoData._ID + " INTEGER PRIMARY KEY," + ProgressoData.COLUMN_PERCENTUAL + " NUMBER )";
 
     private static final String SQL_CREATE_DISCIPLINA = "CREATE TABLE " + DisciplinaData.TABLE_NAME + " ("
             + DisciplinaData._ID + " INTEGER PRIMARY KEY," + DisciplinaData.COLUMN_DESCRICAO + " TEXT, "
@@ -76,6 +80,7 @@ public final class PerguntasEnadDataBaseHelper extends SQLiteOpenHelper {
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_DISCIPLINA );
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_PERGUNTA );
         db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_OPCAO );
+        db.execSQL( PerguntasEnadDataBaseHelper.SQL_CREATE_PROGRESSO );
     }
 
     /* (non-Javadoc)

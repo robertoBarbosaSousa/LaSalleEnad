@@ -17,7 +17,6 @@ public final class PerguntasEnadContract {
 
         public static final String TABLE_NAME = "curso";
 
-        public static final String COLUMN_ID = "curso_id";
 
         public static final String COLUMN_DESCRICAO = "descricao";
 
@@ -26,8 +25,6 @@ public final class PerguntasEnadContract {
     public static final class DisciplinaData implements BaseColumns {
 
         public static final String TABLE_NAME = "disciplina";
-
-        public static final String COLUMN_ID = "disciplina_id";
 
         public static final String FK_COLUMN_CURSO = "curso_fk";
 
@@ -38,8 +35,6 @@ public final class PerguntasEnadContract {
     public static final class PerguntaData implements BaseColumns {
 
         public static final String TABLE_NAME = "pergunta";
-
-        public static final String COLUMN_ID = "pergunta_id";
 
         public static final String FK_COLUMN_DISCIPLINA = "disciplina_fk";
 
@@ -53,13 +48,19 @@ public final class PerguntasEnadContract {
 
         public static final String TABLE_NAME = "opcao";
 
-        public static final String COLUMN_ID = "opcao_id";
-
         public static final String FK_COLUMN_PERGUNTA = "pergunta_fk";
 
         public static final String COLUMN_DESCRICAO = "descricao";
 
         public static final String COLUMN_RESPOSTA_CORRETA = "resposta_correta";
+
+    }
+
+    public static final class ProgressoData implements BaseColumns {
+
+        public static final String TABLE_NAME = "progresso";
+
+        public static final String COLUMN_PERCENTUAL = "percentual";
 
     }
 }

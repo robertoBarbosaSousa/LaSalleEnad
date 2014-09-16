@@ -20,6 +20,8 @@ public class FimJogoDialog extends Dialog {
 
     private Button btnOk;
 
+    private Button btnProgresso;
+
     private TextView txtQtdeQuestoes;
 
     private TextView txtAcertos;
@@ -37,13 +39,17 @@ public class FimJogoDialog extends Dialog {
         this.listener = listener;
         this.setContentView( R.layout.dialogo_fim_jogo );
         this.btnOk = (Button) this.findViewById( R.id.btnOK );
+        this.btnProgresso = (Button) this.findViewById( R.id.btnVerProgresso );
+
         this.btnOk.setOnClickListener( this.clickOK );
+        this.btnProgresso.setOnClickListener( this.clickProgresso );
 
         this.txtTempo = (TextView) this.findViewById( R.id.txtTempo );
         this.txtQtdeQuestoes = (TextView) this.findViewById( R.id.txtQtdeQuestoes );
         this.txtMedia = (TextView) this.findViewById( R.id.txtMedia );
         this.txtAcertos = (TextView) this.findViewById( R.id.txtAcertos );
         this.txtPercentual = (TextView) this.findViewById( R.id.txtPercentual );
+
     }
 
     android.view.View.OnClickListener clickOK = new android.view.View.OnClickListener() {
@@ -51,6 +57,14 @@ public class FimJogoDialog extends Dialog {
         @Override
         public void onClick( View v ) {
             FimJogoDialog.this.listener.finalizaActivity();
+        }
+    };
+    
+    android.view.View.OnClickListener clickProgresso = new android.view.View.OnClickListener() {
+
+        @Override
+        public void onClick( View v ) {
+            FimJogoDialog.this.listener.verProgresso();
         }
     };
 

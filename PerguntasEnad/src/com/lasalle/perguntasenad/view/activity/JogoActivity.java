@@ -6,6 +6,7 @@ import roboguice.activity.RoboActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 import android.app.ActionBar.LayoutParams;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -177,6 +178,14 @@ public class JogoActivity extends RoboActivity implements JogoView, FimJogoListe
     public void finalizaActivity() {
         this.dialogFimJogo.dismiss();
         this.finish();
+    }
+
+    @Override
+    public void verProgresso() {
+        this.dialogFimJogo.dismiss();
+        this.finish();
+        startActivity( new Intent( this, ProgressoActivity.class ) );
+
     }
 
 }

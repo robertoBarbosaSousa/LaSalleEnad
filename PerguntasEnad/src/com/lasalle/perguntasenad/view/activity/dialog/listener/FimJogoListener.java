@@ -12,4 +12,8 @@ public interface FimJogoListener {
      */
     void finalizaActivity();
 
+    /**
+     * Redireciona para a tela de progresso.
+     */
+    void verProgresso();
 }

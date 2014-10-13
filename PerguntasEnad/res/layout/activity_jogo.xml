@@ -1,6 +1,8 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent" android:background="@android:color/darker_gray"
+    android:layout_height="fill_parent"
+    
+        android:orientation="vertical" >
 
     <Chronometer
         android:id="@+id/cronometro"
@@ -11,27 +13,16 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <LinearLayout android:background="@android:color/white"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cronometro"
-        android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:orientation="vertical" >
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="#FFFFFF" >
-
-            <TextView
+   <TextView
                 android:id="@+id/enunciado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000" />
-        </ScrollView>
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,29 +36,31 @@
             </LinearLayout>
         </ScrollView>
 
+    </LinearLayout>
+
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+    
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/btnConfirma"
+                android:id="@+id/btnConfirma" android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Confirmar" />
 
             <Button
-                android:id="@+id/btnPular"
+                android:id="@+id/btnPular" android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Pular" />
 
             <Button
-                android:id="@+id/btnDesistir"
+                android:id="@+id/btnDesistir" android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Desistir" />
         </LinearLayout>
-    </LinearLayout>
 
-</RelativeLayout>
+</LinearLayout>

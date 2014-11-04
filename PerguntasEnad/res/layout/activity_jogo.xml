@@ -1,8 +1,7 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent" android:background="@android:color/darker_gray"
-    android:layout_height="fill_parent"
-    
-        android:orientation="vertical" >
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray" >
 
     <Chronometer
         android:id="@+id/cronometro"
@@ -13,54 +12,60 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="10dp" />
 
-    <LinearLayout android:background="@android:color/white"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical" >
-   <TextView
-                android:id="@+id/enunciado"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000" />
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp" >
-
-            <LinearLayout
-                android:id="@+id/respostas"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" >
-            </LinearLayout>
-        </ScrollView>
-
-    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="40dp"
+        android:background="@android:color/white" >
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-    
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
-            <Button
-                android:id="@+id/btnConfirma" android:layout_weight="1"
+            <TextView
+                android:id="@+id/enunciado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Confirmar" />
+                android:textColor="#000000" />
 
-            <Button
-                android:id="@+id/btnPular" android:layout_weight="1"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/respostas"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Pular" />
-
-            <Button
-                android:id="@+id/btnDesistir" android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Desistir" />
+                android:orientation="vertical" >
+            </LinearLayout>
         </LinearLayout>
+    </ScrollView>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btnConfirma"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Confirmar" />
+
+        <Button
+            android:id="@+id/btnPular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pular" />
+
+        <Button
+            android:id="@+id/btnDesistir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Desistir" />
+    </LinearLayout>
+
+</RelativeLayout>
